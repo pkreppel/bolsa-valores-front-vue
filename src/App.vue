@@ -27,10 +27,13 @@ export default {
     getTicker(ticker) {
       const bolsa = new bolsaService()
       return bolsa.obterTicker(ticker, utils.getCurrentDateEN()).then((resultado) => {
-        if (typeof resultado == "string"){
+         if (typeof resultado == "string"){
           return {nome : "Erro de leitura", valor : resultado}
         }
         else {
+          if (resultado.values.length === 0) {
+            return {nome : `Erro de leitura no ticker ${ticker}`, valor : ''}
+          }
           return {nome : resultado.friendlyName, 
           valor : utils.formatMoney(resultado.values[0][2])};
         }

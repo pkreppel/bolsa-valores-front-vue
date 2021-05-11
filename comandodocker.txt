@@ -1,2 +1,2 @@
-docker build -t bolsa-valores-vue .
-docker run -dp 8081:8081 bolsa-valores-vue
+docker build -t bolsa-valores-front-vue .
+docker run -dp 8081:8081 bolsa-valores-front-vue
